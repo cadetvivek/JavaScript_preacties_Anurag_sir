@@ -1,0 +1,165 @@
+forEach method
+
+let arr = ["mongo","banana","papaya","dry","khaya"]
+ arr.forEach((fruit)=>{
+    console.log(fruit)
+})
+
+
+//call stack
+function outer(first){
+    console.log("you are en outer function")
+    inner()
+    function inner(second){
+        console.log("you are a inner function")
+    }
+}
+outer()
+
+
+Hoisting
+
+1. console.log (x) //undefined
+var x = "hacker"
+
+2. abc()
+function abc(){  
+    console.log("hacker") // hacker, The function greet is invoked before its declaration.
+}
+
+3. sayHello() //The function greet is invoked before its declaration. becasue we are use variable here its work only function declration 
+let sayHello =function(){
+    console.log("hello vivek")
+}
+
+
+ var x = 5
+4. //Both variable and function declarations are hoisted to the top of their scope. output = 5
+ function abc(){
+     console.log(x)
+ }
+ abc()
+ var x
+
+//5
+console.log(x)//RefereanceError x is not defined becasue var is not block of scope 
+{
+    var x = 5
+}
+
+
+
+// globle scop or local scop
+//globle
+var globle = "hi am also globle scope function"
+function globleFunction(){
+    console.log("hi i am a globle scope")
+}
+console.log(globle)
+globleFunction()
+
+
+local scope
+
+
+function outer(){
+    var localvar = "hi i am a local scope"
+    function inner(){
+        console.log(localvar) // hi i am a local scope
+    }
+    inner()
+}
+outer()
+
+
+
+//Laxical scoping
+function outerFunction() {
+    var outerVar = "I'm in the outer scope";
+
+    function innerFunction() {
+        console.log(outerVar);
+    }
+
+    return innerFunction;
+}
+
+var innerFunc = outerFunction();
+innerFunc(); // Output: "I'm in the outer scope"
+
+
+
+Higher Order function
+
+function applyOperation(x, y, operation) {
+    return operation(x, y);
+}
+
+function add(x, y) {
+    return x + y;
+}
+
+function multiply(x, y) {
+    return x * y;
+}
+
+console.log(applyOperation(3, 4, add));       // Output: 7
+console.log(applyOperation(3, 4, multiply));  // Output: 12
+
+
+setTimeout and setInterval 
+
+console.log("Start my code")
+setTimeout(function(){
+    console.log("i have use setTimeout function 2 second")
+},2000)
+console.log("End of the code")
+
+
+
+Event loop or call queue
+console.log("start")
+setTimeout(function(){
+    console.log("you are after one second")
+},1000)
+
+
+fetch("https://chat.openai.com/c/43f0ca96-990a-4b84-95d9-e8962d528f58")
+.then(response=>response())
+.then(data=>console.log("fatch data",data))
+console.log("End")
+
+
+Closure
+function outerFunc() {
+    let x = 10;
+
+    function innerFunc() {
+        console.log(x);
+    }
+
+    return innerFunc;
+}
+
+const closure = outerFunc();
+closure(); // Output: 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
